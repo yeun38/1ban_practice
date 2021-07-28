@@ -8,7 +8,7 @@
         <h4>Update Profile</h4>
     </div>
     <div>
-        <form action="{% url 'profileapp:update %}"
+        <form action="{% url 'profileapp:update' pk=target_profile.pk%}"
               enctype="multipart/form-data"
               method="post">
           {% csrf_token %}
@@ -21,4 +21,4 @@
         </form>
 </div>
 
-{% endblock %
+{% endblock %}
