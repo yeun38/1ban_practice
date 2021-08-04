@@ -1,10 +1,6 @@
 {% extends 'base1.html' %}
-
-
 {% block content %}
-
     <div class="container">
-
         <div>
             {#     제목 / 글쓴이 / 날짜       #}
             <h1>{{ target_article.title }}</h1>
@@ -15,10 +11,14 @@
             {#      게시글 내용      #}
             <img src="{{ target_article.image.url }}" alt="">
             {{ target_article.content }}
+            <div>
+                <a href="{% url 'articleapp:update' pk=target_article.pk %}"
+                   class="btn btn-success rounded-pill px-5">
+                    Update
+                </a>
+            </div>
         </div>
 
 
     </div>
-
-
 {% endblock %}
