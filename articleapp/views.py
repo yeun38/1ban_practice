@@ -19,21 +19,18 @@ class ArticleCreateView(CreateView):
     template_name = 'articleapp/create.html'
 
 
-def form_valid(self, form):
-  form.instance.writer = self.request.user
-  return super().form_valid(form)
+    def form_valid(self, form):
+        form.instance.writer = self.request.user
+        return super().form_valid(form)
 
 
-def get_success_url(self):
-    return reverse('articleapp:detail', kwargs={'pk': self.object.pk})
+    def get_success_url(self):
+        return reverse('articleapp:detail', kwargs={'pk': self.object.pk})
 
 class ArticleDetailView(DetailView):
     model = Article
     context_object_name = 'target_article'
     template_name = 'articleapp/detail.html'
-
-
-
 
 
 @method_decorator(article_ownership_required, 'get')
