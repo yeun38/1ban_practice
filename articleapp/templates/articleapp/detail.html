@@ -18,7 +18,7 @@
                 {{ target_article.content }}
             </div>
 
-{#            {% if target_article.writer == user %}#}
+            {% if target_article.writer == user %}
             <div>
                 <a href="{% url 'articleapp:update' pk=target_article.pk %}"
                    class="btn btn-success rounded-pill px-5">
@@ -30,7 +30,7 @@
                 </a>
 
             </div>
-{#            {% endif %}#}
+            {% endif %}
         </div>
         <hr>
         <div>
