@@ -31,9 +31,6 @@ class ProjectDetailView(DetailView, MultipleObjectMixin):
         user = self.request.user
         project = self.object
 
-        subscription = Subscription.objects.filter(user=user,
-                                                   project=project)
-
         if user.is_authenticated:
             subscription = Subscription.objects.filter(user=user,
                                                        project=project)
