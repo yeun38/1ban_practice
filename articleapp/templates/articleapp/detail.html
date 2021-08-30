@@ -6,10 +6,13 @@
             <h1>{{ target_article.title }}</h1>
             <div>
                 <a href="{% url 'likeapp:article_like' article_pk=target_article.pk %}"
-                   class="material-icons">
+                   class="material-icons"
+                   style="vertical-align: middle; color: #f77">
                     favorite
                 </a>
-                {{ target_article.like }}
+               <span style="vertical-align: middle;">
+                    {{ target_article.like }}
+                </span>
             </div>
             <h4>{{ target_article.writer.profile.nickname }}</h4>
             <p>{{ target_article.created_at }}</p>
@@ -22,7 +25,7 @@
                  class="article_image">
 
             <div class="article_content">
-                {{ target_article.content }}
+                {{ target_article.content | safe }}
             </div>
 
             {% if target_article.writer == user %}
